@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
+    <entity name="SomeEntity" representedClassName="iOSHelper.SomeEntity" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="someBooleanValue" attributeType="Boolean" syncable="YES"/>
+        <attribute name="someIntegerValue" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="userSettings" maxCount="1" deletionRule="Nullify" destinationEntity="UserSettings" inverseName="myEntitiesSet" inverseEntity="UserSettings" syncable="YES"/>
+    </entity>
     <entity name="UserSettings" representedClassName="iOSHelper.UserSettings" syncable="YES">
         <attribute name="settingsEnumValue" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="someBooleanValue" attributeType="Boolean" syncable="YES"/>
@@ -7,8 +14,10 @@
         <attribute name="someFloatValue" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="someIntegerValue" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="someString" attributeType="String" syncable="YES"/>
+        <relationship name="myEntitiesSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SomeEntity" inverseName="userSettings" inverseEntity="SomeEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserSettings" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="UserSettings" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="SomeEntity" positionX="-63" positionY="27" width="128" height="120"/>
     </elements>
 </model>

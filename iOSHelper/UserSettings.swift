@@ -21,6 +21,14 @@ class UserSettings: MyManagedObject {
   @NSManaged private var someBooleanValue: NSNumber
   @NSManaged var someString: String
   @NSManaged var someDate: NSDate
+  @NSManaged private var myEntitiesSet: NSSet
+  
+  var myEntities: [SomeEntity] {
+    if let objects = self.exerciseGroupsSet.sortedArrayUsingDescriptors(SomeEntity.sortDescriptors) as? [SomeEntity] {
+      return objects
+    }
+    return []
+  }
   
   var someInteger: Int {
     get {

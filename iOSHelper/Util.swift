@@ -89,7 +89,13 @@ class Util {
   // Ratings
   
   class func rateApp() {
-    let APP_ID = "YOUR APP ID"
-    UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(APP_ID)&onlyLatestVersion=true&pageNumber=0&sortOrdering=1)")!);
+    let APP_ID = "123456789"
+    if let appStoreURL = NSURL(string: "itms-apps://itunes.apple.com/app/id\(APP_ID)?mt=8") where UIApplication.sharedApplication().canOpenURL(appStoreURL) {
+      UIApplication.sharedApplication().openURL(appStoreURL)
+    } else if let appStoreURL = NSURL(string: "http://itunes.apple.com/app/id\(APP_ID)?mt=8") where UIApplication.sharedApplication().canOpenURL(appStoreURL) {
+      UIApplication.sharedApplication().openURL(appStoreURL)
+    } else {
+      NSLog("Failed to open app store")
+    }
   }
 }

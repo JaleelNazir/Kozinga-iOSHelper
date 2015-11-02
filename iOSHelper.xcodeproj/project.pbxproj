@@ -40,6 +40,7 @@
 		B650AE4A1BE004B100C8C851 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B650AE481BE004B100C8C851 /* Loading.storyboard */; };
 		B650AE4B1BE004B100C8C851 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE491BE004B100C8C851 /* LoadingViewController.swift */; };
 		B650AE501BE0072500C8C851 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE4E1BE0072500C8C851 /* UserSettings.swift */; };
+		B6E549A61BE7C62A006A413D /* SomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E549A41BE7C62A006A413D /* SomeEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		B650AE481BE004B100C8C851 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		B650AE491BE004B100C8C851 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		B650AE4E1BE0072500C8C851 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		B6E549A41BE7C62A006A413D /* SomeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				B650AE321BDFF6A100C8C851 /* CoreDataStack.swift */,
 				B650AE331BDFF6A100C8C851 /* MyManagedObject.swift */,
 				B650AE4E1BE0072500C8C851 /* UserSettings.swift */,
+				B6E549A41BE7C62A006A413D /* SomeEntity.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				B650AE2A1BDFF66000C8C851 /* NSDate+Util.swift in Sources */,
 				B650AE501BE0072500C8C851 /* UserSettings.swift in Sources */,
 				B650AE291BDFF66000C8C851 /* UIFont+Util.swift in Sources */,
+				B6E549A61BE7C62A006A413D /* SomeEntity.swift in Sources */,
 				B650AE441BDFFF3F00C8C851 /* MyTabBarController.swift in Sources */,
 				B650AE2B1BDFF66000C8C851 /* UIDevice+Util.swift in Sources */,
 				B650AE1C1BDFF5EA00C8C851 /* MyCustomChooserTableViewController.swift in Sources */,
@@ -636,6 +640,7 @@
 				B650ADFF1BDFE2B500C8C851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B650AE001BDFE2B500C8C851 /* Build configuration list for PBXNativeTarget "iOSHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -644,6 +649,7 @@
 				B650AE021BDFE2B500C8C851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B650AE031BDFE2B500C8C851 /* Build configuration list for PBXNativeTarget "iOSHelperUITests" */ = {
 			isa = XCConfigurationList;
@@ -652,6 +658,7 @@
 				B650AE051BDFE2B500C8C851 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
