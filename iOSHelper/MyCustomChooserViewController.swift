@@ -29,8 +29,9 @@ class MyCustomChooserViewController: MyViewController {
     return controller
   }
   
-  class func presentMyCustomChooserViewController(presengingViewController: UIViewController, chooserTitle: String, chooserItems: [MCCItem], isPicker: Bool = false, cancelItem: MCCItem? = nil, backgroundTintColor: UIColor = UIColor.blackColor(), chooserBackgroundColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonColor: UIColor = UIColor.whiteColor(), chooserButtonBorderColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonTextColor: UIColor = UIColor.applicationPrimaryColor, chooserCancelTextColor: UIColor = UIColor.redColor(), chooserDoneText: String = "Done", chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge, chooserItemFont: UIFont = UIFont.applicationFontMedium, defaultValue: MCCItem? = nil) {
+  class func presentMyCustomChooserViewController(presengingViewController: UIViewController, chooserTitle: String, chooserItems: [MCCItem], isPicker: Bool = false, cancelItem: MCCItem? = nil, backgroundTintColor: UIColor = UIColor.blackColor(), chooserBackgroundColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonColor: UIColor = UIColor.whiteColor(), chooserButtonBorderColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonTextColor: UIColor = UIColor.applicationPrimaryColor, chooserCancelTextColor: UIColor = UIColor.redColor(), chooserDoneText: String = "Done", chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge, chooserItemFont: UIFont = UIFont.applicationFontMedium, defaultValue: MCCItem? = nil, statusBarStyle: UIStatusBarStyle = .Default) {
     let controller = self.getControllerFromStoryboard()
+    controller.statusBarStyle = statusBarStyle
     controller.chooserTitle = chooserTitle
     controller.chooserItems = chooserItems
     controller.isPicker = isPicker
@@ -63,6 +64,7 @@ class MyCustomChooserViewController: MyViewController {
   var chooserItems: [MCCItem] = []
   
   // These are customizations properties
+  var statusBarStyle: UIStatusBarStyle = .Default
   var isPicker: Bool = false
   var backgroundTintColor = UIColor.blackColor()
   var chooserBackgroundColor = UIColor.chooserBackgroundColor
@@ -135,6 +137,10 @@ class MyCustomChooserViewController: MyViewController {
         callback()
       }
     }
+  }
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return self.statusBarStyle
   }
   
   // MARK: Actions
