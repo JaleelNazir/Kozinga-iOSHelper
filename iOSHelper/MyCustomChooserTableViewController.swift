@@ -52,7 +52,6 @@ class MyChooserFooterCell: UITableViewCell {
 class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
   
   // These should be set in the ModuleViewController before controller is loaded
-  var chooserObjectKey: String = ""
   var chooserTitle: String = ""
   var items: [MCCItem] = []
   
@@ -91,7 +90,6 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
   private func loadData() {
     dispatch_async(GlobalMainQueue) {
       if let parent = self.parentViewController as? MyCustomChooserViewController {
-        self.chooserObjectKey = parent.chooserObjectKey
         self.chooserTitle = parent.chooserTitle
         self.items = parent.chooserItems
         

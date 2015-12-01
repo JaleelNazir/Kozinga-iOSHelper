@@ -53,7 +53,7 @@ class MainTableViewController: MyTableViewController {
       print("Cancel selected")
     }
     
-    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserObjectKey: "objectOfInterst", chooserTitle: "Select An Option", chooserItems: items, cancelItem: cancelItem)
+    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserTitle: "Select An Option", chooserItems: items, cancelItem: cancelItem)
   }
   
   func showPickerChooser() {
@@ -75,7 +75,7 @@ class MainTableViewController: MyTableViewController {
       print("Cancel selected")
     }
     
-    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserObjectKey: "objectOfInterst", chooserTitle: "Pick an Option", chooserItems: items, isPicker: true, cancelItem: cancelItem)
+    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserTitle: "Pick an Option", chooserItems: items, isPicker: true, cancelItem: cancelItem)
   }
   
   // MARK: Loading

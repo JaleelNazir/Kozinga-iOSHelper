@@ -29,9 +29,8 @@ class MyCustomChooserViewController: MyViewController {
     return controller
   }
   
-  class func presentMyCustomChooserViewController(presengingViewController: UIViewController, chooserObjectKey: String, chooserTitle: String, chooserItems: [MCCItem], isPicker: Bool = false, cancelItem: MCCItem? = nil, backgroundTintColor: UIColor = UIColor.blackColor(), chooserBackgroundColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonColor: UIColor = UIColor.whiteColor(), chooserButtonBorderColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonTextColor: UIColor = UIColor.applicationPrimaryColor, chooserCancelTextColor: UIColor = UIColor.redColor(), chooserDoneText: String = "Done", chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge, chooserItemFont: UIFont = UIFont.applicationFontMedium, defaultValue: MCCItem? = nil) {
+  class func presentMyCustomChooserViewController(presengingViewController: UIViewController, chooserTitle: String, chooserItems: [MCCItem], isPicker: Bool = false, cancelItem: MCCItem? = nil, backgroundTintColor: UIColor = UIColor.blackColor(), chooserBackgroundColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonColor: UIColor = UIColor.whiteColor(), chooserButtonBorderColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonTextColor: UIColor = UIColor.applicationPrimaryColor, chooserCancelTextColor: UIColor = UIColor.redColor(), chooserDoneText: String = "Done", chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge, chooserItemFont: UIFont = UIFont.applicationFontMedium, defaultValue: MCCItem? = nil) {
     let controller = self.getControllerFromStoryboard()
-    controller.chooserObjectKey = chooserObjectKey
     controller.chooserTitle = chooserTitle
     controller.chooserItems = chooserItems
     controller.isPicker = isPicker
@@ -60,7 +59,6 @@ class MyCustomChooserViewController: MyViewController {
   @IBOutlet weak var backgroundView: UIView!
   
   // These should be set when controller is initialized before it is loaded
-  var chooserObjectKey: String = ""
   var chooserTitle: String = ""
   var chooserItems: [MCCItem] = []
   
