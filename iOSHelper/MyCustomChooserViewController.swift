@@ -9,9 +9,13 @@
 import Foundation
 import UIKit
 
-protocol MyCustomChooserViewControllerDelegate {
-  func myCustomChooserIndexSelected(key: String, index: Int, title: String)
-  func myCustomChooserChooserCancelSelected(key: String)
+class MCCItem: NSObject {
+  var title: String = ""
+  var callback: (() -> Void)? = nil
+  init(title: String, callback: (() -> Void)? = nil) {
+    self.title = title
+    self.callback = callback
+  }
 }
 
 class MyCustomChooserViewController: MyViewController {
@@ -25,14 +29,13 @@ class MyCustomChooserViewController: MyViewController {
     return controller
   }
   
-  class func presentMyCustomChooserViewController(presengingViewController: UIViewController, chooserObjectKey: String, chooserTitle: String, chooserItems: [String], delegate: MyCustomChooserViewControllerDelegate? = nil, isPicker: Bool = false, isCancelOption: Bool = false, backgroundTintColor: UIColor = UIColor.blackColor(), chooserBackgroundColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonColor: UIColor = UIColor.whiteColor(), chooserButtonBorderColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonTextColor: UIColor = UIColor.applicationPrimaryColor, chooserCancelTextColor: UIColor = UIColor.redColor(), chooserDoneText: String = "Done", chooserCancelText: String = "Cancel", chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge, chooserItemFont: UIFont = UIFont.applicationFontMedium, defaultValue: String? = nil) {
+  class func presentMyCustomChooserViewController(presengingViewController: UIViewController, chooserObjectKey: String, chooserTitle: String, chooserItems: [MCCItem], isPicker: Bool = false, cancelItem: MCCItem? = nil, backgroundTintColor: UIColor = UIColor.blackColor(), chooserBackgroundColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonColor: UIColor = UIColor.whiteColor(), chooserButtonBorderColor: UIColor = UIColor.chooserBackgroundColor, chooserButtonTextColor: UIColor = UIColor.applicationPrimaryColor, chooserCancelTextColor: UIColor = UIColor.redColor(), chooserDoneText: String = "Done", chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge, chooserItemFont: UIFont = UIFont.applicationFontMedium, defaultValue: MCCItem? = nil) {
     let controller = self.getControllerFromStoryboard()
-    controller.delegate = delegate
     controller.chooserObjectKey = chooserObjectKey
     controller.chooserTitle = chooserTitle
     controller.chooserItems = chooserItems
     controller.isPicker = isPicker
-    controller.isCancelOption = isCancelOption
+    controller.cancelItem = cancelItem
     controller.backgroundTintColor = backgroundTintColor
     controller.chooserBackgroundColor = chooserBackgroundColor
     controller.chooserButtonColor = chooserButtonColor
@@ -40,15 +43,13 @@ class MyCustomChooserViewController: MyViewController {
     controller.chooserButtonTextColor = chooserButtonTextColor
     controller.chooserCancelTextColor = chooserCancelTextColor
     controller.chooserDoneText = chooserDoneText
-    controller.chooserCancelText = chooserCancelText
     controller.chooserTitleFont = chooserTitleFont
     controller.chooserItemFont = chooserItemFont
     controller.defaultValue = defaultValue
+    
     presengingViewController.presentViewController(controller, animated: false, completion: nil)
   }
-  
-  var delegate: MyCustomChooserViewControllerDelegate?
-  
+
   static let NotificationClose = "MyCustomChooserViewController.Close"
   
   @IBOutlet weak var contentView: UIView!
@@ -61,11 +62,10 @@ class MyCustomChooserViewController: MyViewController {
   // These should be set when controller is initialized before it is loaded
   var chooserObjectKey: String = ""
   var chooserTitle: String = ""
-  var chooserItems: [String] = []
+  var chooserItems: [MCCItem] = []
   
   // These are customizations properties
   var isPicker: Bool = false
-  var isCancelOption = false
   var backgroundTintColor = UIColor.blackColor()
   var chooserBackgroundColor = UIColor.chooserBackgroundColor
   var chooserButtonColor = UIColor.whiteColor()
@@ -73,13 +73,15 @@ class MyCustomChooserViewController: MyViewController {
   var chooserButtonTextColor = UIColor.applicationPrimaryColor
   var chooserCancelTextColor = UIColor.redColor()
   var chooserDoneText: String = "Done"
-  var chooserCancelText: String = "Cancel"
   var chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge
   var chooserItemFont: UIFont = UIFont.applicationFontMedium
-  var defaultValue: String? = nil
+  var defaultValue: MCCItem? = nil
+  var cancelItem: MCCItem? = nil
+  var isCancelOption: Bool {
+    return self.cancelItem != nil
+  }
   
   var selectedIndex: Int? = nil
-  var selectedTitle: String? = nil
   
   var contentHeight: CGFloat {
     return self.contentHeightConstraint.constant
@@ -129,10 +131,10 @@ class MyCustomChooserViewController: MyViewController {
     super.viewDidDisappear(animated)
     
     dispatch_async(GlobalMainQueue) {
-      if let index = self.selectedIndex, title = self.selectedTitle {
-        self.delegate?.myCustomChooserIndexSelected(self.chooserObjectKey, index: index, title: title)
-      } else {
-        self.delegate?.myCustomChooserChooserCancelSelected(self.chooserObjectKey)
+      if let index = self.selectedIndex, callback = self.chooserItems[index].callback {
+        callback()
+      } else if let cancel = self.cancelItem, callback = cancel.callback {
+        callback()
       }
     }
   }

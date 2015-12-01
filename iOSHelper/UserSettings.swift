@@ -24,7 +24,7 @@ class UserSettings: MyManagedObject {
   @NSManaged private var myEntitiesSet: NSSet
   
   var myEntities: [SomeEntity] {
-    if let objects = self.exerciseGroupsSet.sortedArrayUsingDescriptors(SomeEntity.sortDescriptors) as? [SomeEntity] {
+    if let objects = self.myEntitiesSet.sortedArrayUsingDescriptors(SomeEntity.sortDescriptors) as? [SomeEntity] {
       return objects
     }
     return []

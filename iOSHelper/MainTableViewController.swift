@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainTableViewController: MyTableViewController, MyCustomChooserViewControllerDelegate {
+class MainTableViewController: MyTableViewController {
   
   // MARK: Table view
   
@@ -35,21 +35,47 @@ class MainTableViewController: MyTableViewController, MyCustomChooserViewControl
   // MARK: My Custom Chooser
   
   func showStandardChooser() {
-    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserObjectKey: "objectOfInterst", chooserTitle: "Select An Option", chooserItems: ["Option 1", "Option 2", "Option 3", "Option 4"], delegate: self, isCancelOption: true)
+    var items: [MCCItem] = []
+    items.append(MCCItem(title: "Option 1", callback: { () -> Void in
+      print("Option 1 was selected")
+    }))
+    items.append(MCCItem(title: "Option 2", callback: { () -> Void in
+      print("Option 2 was selected")
+    }))
+    items.append(MCCItem(title: "Option 3", callback: { () -> Void in
+      print("Option 3 was selected")
+    }))
+    items.append(MCCItem(title: "Option 4", callback: { () -> Void in
+      print("Option 4 was selected")
+    }))
+    
+    let cancelItem = MCCItem(title: "Cancel") { () -> Void in
+      print("Cancel selected")
+    }
+    
+    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserObjectKey: "objectOfInterst", chooserTitle: "Select An Option", chooserItems: items, cancelItem: cancelItem)
   }
   
   func showPickerChooser() {
-    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserObjectKey: "objectOfInterst", chooserTitle: "Pick an Option", chooserItems: ["Picker 1", "Picker 2", "Picker 3", "Picker 4"], delegate: self, isPicker: true, isCancelOption: true)
-  }
-  
-  func myCustomChooserIndexSelected(key: String, index: Int, title: String) {
-    if key == "objectOfInterst" {
-      NSLog("Option at index \(index) was selected with title \(title)")
+    var items: [MCCItem] = []
+    items.append(MCCItem(title: "Option 1", callback: { () -> Void in
+      print("Picker 1 was selected")
+    }))
+    items.append(MCCItem(title: "Option 2", callback: { () -> Void in
+      print("Picker 2 was selected")
+    }))
+    items.append(MCCItem(title: "Option 3", callback: { () -> Void in
+      print("Picker 3 was selected")
+    }))
+    items.append(MCCItem(title: "Option 4", callback: { () -> Void in
+      print("Picker 4 was selected")
+    }))
+    
+    let cancelItem = MCCItem(title: "Cancel") { () -> Void in
+      print("Cancel selected")
     }
-  }
-  
-  func myCustomChooserChooserCancelSelected(key: String) {
-    NSLog("Cancel was selected")
+    
+    MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserObjectKey: "objectOfInterst", chooserTitle: "Pick an Option", chooserItems: items, isPicker: true, cancelItem: cancelItem)
   }
   
   // MARK: Loading

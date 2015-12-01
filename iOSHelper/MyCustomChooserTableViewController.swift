@@ -54,24 +54,25 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
   // These should be set in the ModuleViewController before controller is loaded
   var chooserObjectKey: String = ""
   var chooserTitle: String = ""
-  var items: [String] = []
+  var items: [MCCItem] = []
   
   // These are customizations properties
   var isPicker: Bool = false
-  var isCancelOption: Bool = false
   var chooserBackgroundColor: UIColor = UIColor.chooserBackgroundColor
   var chooserButtonColor: UIColor = UIColor.whiteColor()
   var chooserButtonBorderColor: UIColor = UIColor.chooserBackgroundColor
   var chooserButtonTextColor: UIColor = UIColor.applicationPrimaryColor
   var chooserCancelTextColor: UIColor = UIColor.redColor()
   var chooserDoneText: String = "Done"
-  var chooserCancelText: String = "Cancel"
   var chooserTitleFont: UIFont = UIFont.applicationBoldFontLarge
   var chooserItemFont: UIFont = UIFont.applicationFontMedium
-  var defaultValue: String? = nil
+  var defaultValue: MCCItem? = nil
+  var cancelItem: MCCItem? = nil
+  var isCancelOption: Bool {
+    return self.cancelItem != nil
+  }
   
   var selectedIndex: Int = 0
-  var selectedTitle: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -95,17 +96,16 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
         self.items = parent.chooserItems
         
         self.isPicker = parent.isPicker
-        self.isCancelOption = parent.isCancelOption
         self.chooserBackgroundColor = parent.chooserBackgroundColor
         self.chooserButtonColor = parent.chooserButtonColor
         self.chooserButtonBorderColor = parent.chooserButtonBorderColor
         self.chooserButtonTextColor = parent.chooserButtonTextColor
         self.chooserCancelTextColor = parent.chooserCancelTextColor
         self.chooserDoneText = parent.chooserDoneText
-        self.chooserCancelText = parent.chooserCancelText
         self.chooserTitleFont = parent.chooserTitleFont
         self.chooserItemFont = parent.chooserItemFont
         self.defaultValue = parent.defaultValue
+        self.cancelItem = parent.cancelItem
       }
       self.tableView.reloadData()
     }
@@ -171,13 +171,11 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
         cell.pickerView.delegate = self
         cell.pickerView.dataSource = self
         
-        if let value = self.defaultValue, index = self.items.indexOf(value) {
+        if let defaultItem = self.defaultValue, index = self.items.indexOf(defaultItem) {
           self.selectedIndex = index
-          self.selectedTitle = value
           cell.pickerView.selectRow(self.selectedIndex, inComponent: 0, animated: false)
         } else if self.items.count > 0 {
           self.selectedIndex = 0
-          self.selectedTitle = self.items[0]
           cell.pickerView.selectRow(self.selectedIndex, inComponent: 0, animated: false)
         }
         
@@ -192,8 +190,8 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
       if indexPath.row == 1 {
         cell.itemLabel.text = self.chooserDoneText
         cell.itemLabel.textColor = self.chooserButtonTextColor
-      } else {
-        cell.itemLabel.text = self.chooserCancelText
+      } else if let cancel = self.cancelItem {
+        cell.itemLabel.text = cancel.title
         cell.itemLabel.textColor = self.chooserCancelTextColor
       }
       return cell
@@ -206,11 +204,11 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
     cell.accentView.layer.borderWidth = 1
     cell.accentView.layer.borderColor = self.chooserButtonBorderColor.CGColor
     cell.itemLabel.font = self.chooserItemFont
-    if indexPath.row == self.items.count {
-      cell.itemLabel.text = self.chooserCancelText
+    if indexPath.row == self.items.count, let cancel = self.cancelItem {
+      cell.itemLabel.text = cancel.title
       cell.itemLabel.textColor = self.chooserCancelTextColor
     } else {
-      cell.itemLabel.text = self.items[indexPath.row]
+      cell.itemLabel.text = self.items[indexPath.row].title
       cell.itemLabel.textColor = self.chooserButtonTextColor
     }
     return cell
@@ -221,7 +219,6 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
       if indexPath.row == 1, let parent = self.parentViewController as? MyCustomChooserViewController {
         // Done was chosen
         parent.selectedIndex = self.selectedIndex
-        parent.selectedTitle = self.selectedTitle
         Notification.postNotification(MyCustomChooserViewController.NotificationClose)
       } else if indexPath.row == 2 {
         // Cancel was chosen
@@ -232,7 +229,6 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
       if indexPath.row < self.items.count, let parent = self.parentViewController as? MyCustomChooserViewController {
         // An item was chosen
         parent.selectedIndex = indexPath.row
-        parent.selectedTitle = self.items[indexPath.row]
         Notification.postNotification(MyCustomChooserViewController.NotificationClose)
       } else {
         // Cancel was chosen
@@ -253,7 +249,6 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
   
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     self.selectedIndex = row
-    self.selectedTitle = self.items[self.selectedIndex]
   }
   
   func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
@@ -266,7 +261,7 @@ class MyCustomChooserTableViewController: MyTableViewController, UIPickerViewDat
     titleLabel.font = self.chooserItemFont
     titleLabel.numberOfLines = 1
     titleLabel.textAlignment = NSTextAlignment.Center
-    titleLabel.text = self.items[row]
+    titleLabel.text = self.items[row].title
     return titleLabel
   }
 }
