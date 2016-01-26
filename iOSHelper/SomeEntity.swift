@@ -69,7 +69,7 @@ class SomeEntity: MyManagedObject {
     return nil
   }
   
-  class func createOrUpdate(name: String, date: NSDate, someInteger: Int, someBoolean: Bool, userSettings: UserSettings? = nil) -> SomeEntity {
+  class func createOrUpdate(name: String, date: NSDate, someInteger: Int, someBoolean: Bool, userSettings: UserSettings = UserSettings.fetch()) -> SomeEntity {
     var object: SomeEntity
     if let fetchedObject = self.fetch(name) {
       object = fetchedObject
@@ -80,13 +80,7 @@ class SomeEntity: MyManagedObject {
     object.date = date
     object.someInteger = someInteger
     object.someBoolean = someBoolean
-    
-    if let settings = userSettings {
-      object.userSettings = settings
-    } else {
-      object.userSettings = UserSettings.fetch()
-    }
-    
+    object.userSettings = userSettings
     CoreDataStack.saveAllContexts()
     return object
   }

@@ -100,6 +100,7 @@
 		B650AE481BE004B100C8C851 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		B650AE491BE004B100C8C851 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		B650AE4E1BE0072500C8C851 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		B652BA901C58180800F8AF74 /* iOSHelper 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iOSHelper 2.xcdatamodel"; sourceTree = "<group>"; };
 		B6E549A41BE7C62A006A413D /* SomeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -666,9 +667,10 @@
 		B650ADDC1BDFE2B500C8C851 /* iOSHelper.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B652BA901C58180800F8AF74 /* iOSHelper 2.xcdatamodel */,
 				B650ADDD1BDFE2B500C8C851 /* iOSHelper.xcdatamodel */,
 			);
-			currentVersion = B650ADDD1BDFE2B500C8C851 /* iOSHelper.xcdatamodel */;
+			currentVersion = B652BA901C58180800F8AF74 /* iOSHelper 2.xcdatamodel */;
 			path = iOSHelper.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

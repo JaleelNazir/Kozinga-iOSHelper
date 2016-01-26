@@ -15,12 +15,12 @@ enum UserSettingsEnum: Int {
 
 class UserSettings: MyManagedObject {
   
-  @NSManaged private var someIntegerValue: NSNumber
-  @NSManaged private var someFloatValue: NSNumber
-  @NSManaged private var settingsEnumValue: NSNumber
-  @NSManaged private var someBooleanValue: NSNumber
-  @NSManaged var someString: String
-  @NSManaged var someDate: NSDate
+  @NSManaged private var someIntegerValue: NSNumber?
+  @NSManaged private var someFloatValue: NSNumber?
+  @NSManaged private var settingsEnumValue: NSNumber?
+  @NSManaged private var someBooleanValue: NSNumber?
+  @NSManaged var someString: String?
+  @NSManaged var someDate: NSDate?
   @NSManaged private var myEntitiesSet: NSSet
   
   var myEntities: [SomeEntity] {
@@ -30,39 +30,63 @@ class UserSettings: MyManagedObject {
     return []
   }
   
+  static let someIntegerDefault: Int = 2
   var someInteger: Int {
     get {
-      return Int(self.someIntegerValue)
+      if let value = self.someIntegerValue {
+        return Int(value)
+      }
+      self.someInteger = UserSettings.someIntegerDefault
+      return UserSettings.someIntegerDefault
     }
     set {
-      self.someIntegerValue = NSNumber(integer: newValue)
+      self.someIntegerValue = newValue
+      CoreDataStack.saveAllContexts()
     }
   }
   
+  static let someFloatDefault: Float = 1.2
   var someFloat: Float {
     get {
-      return Float(self.someFloatValue)
+      if let value = self.someFloatValue {
+        return Float(value)
+      }
+      self.someFloat = UserSettings.someFloatDefault
+      return UserSettings.someFloatDefault
     }
     set {
-      self.someFloatValue = NSNumber(float: newValue)
+      self.someFloatValue = newValue
+      CoreDataStack.saveAllContexts()
     }
   }
   
+  static let settingsEnumDefault: UserSettingsEnum = .Setting2
   var settingsEnum: UserSettingsEnum {
     get {
-      return UserSettingsEnum(rawValue: Int(self.settingsEnumValue))!
+      if let value = self.settingsEnumValue, setting = UserSettingsEnum(rawValue: Int(value)) {
+        return setting
+      }
+      self.settingsEnum = UserSettings.settingsEnumDefault
+      return UserSettings.settingsEnumDefault
     }
     set {
       self.settingsEnumValue = newValue.rawValue
+      CoreDataStack.saveAllContexts()
     }
   }
   
+  static let someBooleanDefault: Bool = false
   var someBoolean: Bool {
     get {
-      return Bool(self.someBooleanValue)
+      if let value = self.someBooleanValue {
+        return Bool(value)
+      }
+      self.someBoolean = UserSettings.someBooleanDefault
+      return UserSettings.someBooleanDefault
     }
     set {
-      self.someBooleanValue = NSNumber(bool: newValue)
+      self.someBooleanValue = newValue
+      CoreDataStack.saveAllContexts()
     }
   }
   
@@ -70,69 +94,14 @@ class UserSettings: MyManagedObject {
   
   static let entityName: String = "UserSettings"
   
-  static let NotificationSomeIntegerUpdated = "UserSettings.SomeInteger.updated"
-  static let NotificationSomeFloatUpdated = "UserSettings.SomeFloat.updated"
-  static let NotificationSomeEnumUpdated = "UserSettings.SomeEnum.updated"
-  static let NotificationSomeBooleanUpdated = "UserSettings.SomeBoolean.updated"
-  static let NotificationSomeStringUpdated = "UserSettings.SomeString.updated"
-  static let NotificationSomeDateUpdated = "UserSettings.SomeDate.updated"
-  
   class func fetch() -> UserSettings {
     if let object = self.fetchAll(self.entityName, sortDescriptors: nil).first as? UserSettings {
       return object
     }
-    
-    // If the settings have not been saved, create new settings with default values
-    let createdSettings = self.insertIntoContext(self.entityName) as! UserSettings
-    let defaultInt: Int = 1
-    let defaultFloat: Float = 1.2
-    let defaultEnum: UserSettingsEnum = .Setting1
-    let defaultBool: Bool = false
-    let defaultString: String = "Default"
-    let defaultDate: NSDate = NSDate()
-    self.update(defaultInt, someFloat: defaultFloat, settingsEnum: defaultEnum, someBoolean: defaultBool, someString: defaultString, someDate: defaultDate)
-    return createdSettings
-  }
-
-  class private func update(someInteger: Int? = nil, someFloat: Float? = nil, settingsEnum: UserSettingsEnum? = nil, someBoolean: Bool? = nil, someString: String? = nil, someDate: NSDate? = nil) -> UserSettings {
-    let userSettings = UserSettings.fetch()
-    
-    if let integer = someInteger {
-      userSettings.someInteger = integer
-      Notification.postNotification(NotificationSomeIntegerUpdated, object: integer)
-    }
-    
-    if let float = someFloat {
-      userSettings.someFloat = float
-      Notification.postNotification(NotificationSomeFloatUpdated, object: float)
-    }
-    
-    if let someEnum = settingsEnum {
-      userSettings.settingsEnum = someEnum
-      Notification.postNotification(NotificationSomeEnumUpdated)
-    }
-    
-    if let bool = someBoolean {
-      userSettings.someBoolean = bool
-      Notification.postNotification(NotificationSomeBooleanUpdated, object: bool)
-    }
-    
-    if let string = someString {
-      userSettings.someString = string
-      Notification.postNotification(NotificationSomeStringUpdated, object: string)
-    }
-    
-    if let date = someDate {
-      userSettings.someDate = date
-      Notification.postNotification(NotificationSomeDateUpdated, object: date)
-    }
-    
-    CoreDataStack.saveAllContexts()
-    
-    return userSettings
+    return self.insertIntoContext(self.entityName) as! UserSettings
   }
   
-  class func destroy() {
+  class func clear() {
     self.destroyAll(self.entityName)
   }
   
@@ -143,7 +112,7 @@ class UserSettings: MyManagedObject {
       return self.fetch().someInteger
     }
     set {
-      self.update(newValue)
+      self.fetch().someInteger = newValue
     }
   }
   
@@ -152,7 +121,7 @@ class UserSettings: MyManagedObject {
       return self.fetch().someFloat
     }
     set {
-      self.update(someFloat: newValue)
+      self.fetch().someFloat = newValue
     }
   }
   
@@ -161,7 +130,7 @@ class UserSettings: MyManagedObject {
       return self.fetch().settingsEnum
     }
     set {
-      self.update(settingsEnum: newValue)
+      self.fetch().settingsEnum = newValue
     }
   }
   
@@ -170,26 +139,36 @@ class UserSettings: MyManagedObject {
       return self.fetch().someBoolean
     }
     set {
-      self.update(someBoolean: newValue)
+      self.fetch().someBoolean = newValue
     }
   }
   
-  class var someString: String {
+  class var someString: String? {
     get {
-    return self.fetch().someString
+      return self.fetch().someString
     }
     set {
-      self.update(someString: newValue)
+      self.fetch().someString = newValue
     }
   }
   
-  class var someDate: NSDate {
+  class var someDate: NSDate? {
     get {
       return self.fetch().someDate
     }
     set {
-      self.update(someDate: newValue)
+      self.fetch().someDate = newValue
     }
   }
   
+  // MARK: DEBUG
+  
+  class func debug() {
+    print("someInteger : \(self.someInteger)")
+    print("someInteger : \(self.someFloat)")
+    print("someInteger : \(self.settingsEnum)")
+    print("someInteger : \(self.someBoolean)")
+    print("someInteger : \(self.someString)")
+    print("someInteger : \(self.someDate)")
+  }
 }
