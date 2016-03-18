@@ -25,13 +25,22 @@ class MainTableViewController: MyTableViewController {
         self.showPickerChooser()
       }
       
-    } else if indexPath.section == 1 {
+    } else if indexPath.section == 1 && indexPath.row == 0 {
+      MyLoadingManager.showLoading()
+      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+        MyLoadingManager.hideLoading()
+      })
+    } else if indexPath.section == 1 && indexPath.row == 1 {
+      MyAlertManager.showAlert("Sample Alert")
       
-      // LOADING
-      self.showLoading()
+    } else if indexPath.section == 1 && indexPath.row == 2 {
+      MyAlertManager.showAlert("Sample Alert", message: "With a message")
+      
+    } else if indexPath.section == 1 && indexPath.row == 3 {
+      MyAlertManager.show2ButtonAlert("Sample 2 Button Alert", message: "With a message")
     }
   }
-  
+
   // MARK: My Custom Chooser
   
   func showStandardChooser() {
@@ -76,16 +85,5 @@ class MainTableViewController: MyTableViewController {
     }
     
     MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserTitle: "Pick an Option", chooserItems: items, isPicker: true, cancelItem: cancelItem)
-  }
-  
-  // MARK: Loading
-  
-  func showLoading() {
-    LoadingViewController.showLoading(self, loadingText: "Custom Loading Text!") { () -> Void in
-      let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(Double(3) * Double(NSEC_PER_SEC)))
-      dispatch_after(popTime, GlobalMainQueue) {
-        LoadingViewController.dismissLoading()
-      }
-    }
   }
 }

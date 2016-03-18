@@ -54,3 +54,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+  
+  // MARK: Custom properties and methods
+  
+  class var sharedInstance: AppDelegate {
+    return UIApplication.sharedApplication().delegate as! AppDelegate
+  }
+  
+  class var rootViewController: UIViewController? {
+    let instance = self.sharedInstance
+    if let window = instance.window {
+      return window.rootViewController
+    }
+    return nil
+  }
+  
+}

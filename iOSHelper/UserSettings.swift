@@ -23,15 +23,15 @@ class UserSettings: MyManagedObject {
   @NSManaged var someDate: NSDate?
   @NSManaged private var myEntitiesSet: NSSet
   
-  var myEntities: [SomeEntity] {
+  private var myEntities: [SomeEntity] {
     if let objects = self.myEntitiesSet.sortedArrayUsingDescriptors(SomeEntity.sortDescriptors) as? [SomeEntity] {
       return objects
     }
     return []
   }
   
-  static let someIntegerDefault: Int = 2
-  var someInteger: Int {
+  private static let someIntegerDefault: Int = 2
+  private var someInteger: Int {
     get {
       if let value = self.someIntegerValue {
         return Int(value)
@@ -45,8 +45,8 @@ class UserSettings: MyManagedObject {
     }
   }
   
-  static let someFloatDefault: Float = 1.2
-  var someFloat: Float {
+  private static let someFloatDefault: Float = 1.2
+  private var someFloat: Float {
     get {
       if let value = self.someFloatValue {
         return Float(value)
@@ -60,8 +60,8 @@ class UserSettings: MyManagedObject {
     }
   }
   
-  static let settingsEnumDefault: UserSettingsEnum = .Setting2
-  var settingsEnum: UserSettingsEnum {
+  private static let settingsEnumDefault: UserSettingsEnum = .Setting2
+  private var settingsEnum: UserSettingsEnum {
     get {
       if let value = self.settingsEnumValue, setting = UserSettingsEnum(rawValue: Int(value)) {
         return setting
@@ -75,8 +75,8 @@ class UserSettings: MyManagedObject {
     }
   }
   
-  static let someBooleanDefault: Bool = false
-  var someBoolean: Bool {
+  private static let someBooleanDefault: Bool = false
+  private var someBoolean: Bool {
     get {
       if let value = self.someBooleanValue {
         return Bool(value)
@@ -106,6 +106,10 @@ class UserSettings: MyManagedObject {
   }
   
   // MARK: Settings properties
+  
+  class var myEntities: [SomeEntity] {
+    return self.fetch().myEntities
+  }
   
   class var someInteger: Int {
     get {

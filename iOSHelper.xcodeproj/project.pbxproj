@@ -12,8 +12,6 @@
 		B650ADDE1BDFE2B500C8C851 /* iOSHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B650ADDC1BDFE2B500C8C851 /* iOSHelper.xcdatamodeld */; };
 		B650ADE01BDFE2B500C8C851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B650ADDF1BDFE2B500C8C851 /* Assets.xcassets */; };
 		B650ADE31BDFE2B500C8C851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B650ADE11BDFE2B500C8C851 /* LaunchScreen.storyboard */; };
-		B650ADEE1BDFE2B500C8C851 /* iOSHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650ADED1BDFE2B500C8C851 /* iOSHelperTests.swift */; };
-		B650ADF91BDFE2B500C8C851 /* iOSHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650ADF81BDFE2B500C8C851 /* iOSHelperUITests.swift */; };
 		B650AE1A1BDFF5EA00C8C851 /* MyCustomChooser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B650AE171BDFF5EA00C8C851 /* MyCustomChooser.storyboard */; };
 		B650AE1B1BDFF5EA00C8C851 /* MyCustomChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE181BDFF5EA00C8C851 /* MyCustomChooserViewController.swift */; };
 		B650AE1C1BDFF5EA00C8C851 /* MyCustomChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE191BDFF5EA00C8C851 /* MyCustomChooserTableViewController.swift */; };
@@ -37,28 +35,12 @@
 		B650AE451BDFFF3F00C8C851 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE401BDFFF3F00C8C851 /* MyTableViewController.swift */; };
 		B650AE461BDFFF3F00C8C851 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE411BDFFF3F00C8C851 /* MyViewController.swift */; };
 		B650AE471BDFFF3F00C8C851 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE421BDFFF3F00C8C851 /* MyPageViewController.swift */; };
-		B650AE4A1BE004B100C8C851 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B650AE481BE004B100C8C851 /* Loading.storyboard */; };
-		B650AE4B1BE004B100C8C851 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE491BE004B100C8C851 /* LoadingViewController.swift */; };
 		B650AE501BE0072500C8C851 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650AE4E1BE0072500C8C851 /* UserSettings.swift */; };
+		B6CC80211C9C9C8E003C2350 /* MyAlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC80201C9C9C8E003C2350 /* MyAlertManager.swift */; };
+		B6CC80231C9C9D24003C2350 /* MyAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC80221C9C9D24003C2350 /* MyAlertController.swift */; };
+		B6CC80251C9C9D32003C2350 /* MyAlertController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CC80241C9C9D32003C2350 /* MyAlertController.storyboard */; };
 		B6E549A61BE7C62A006A413D /* SomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E549A41BE7C62A006A413D /* SomeEntity.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B650ADEA1BDFE2B500C8C851 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B650ADCA1BDFE2B500C8C851 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B650ADD11BDFE2B500C8C851;
-			remoteInfo = iOSHelper;
-		};
-		B650ADF51BDFE2B500C8C851 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B650ADCA1BDFE2B500C8C851 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B650ADD11BDFE2B500C8C851;
-			remoteInfo = iOSHelper;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B650ADD21BDFE2B500C8C851 /* iOSHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,10 +50,8 @@
 		B650ADDF1BDFE2B500C8C851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B650ADE21BDFE2B500C8C851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B650ADE41BDFE2B500C8C851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B650ADE91BDFE2B500C8C851 /* iOSHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B650ADED1BDFE2B500C8C851 /* iOSHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHelperTests.swift; sourceTree = "<group>"; };
 		B650ADEF1BDFE2B500C8C851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B650ADF41BDFE2B500C8C851 /* iOSHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B650ADF81BDFE2B500C8C851 /* iOSHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHelperUITests.swift; sourceTree = "<group>"; };
 		B650ADFA1BDFE2B500C8C851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B650AE171BDFF5EA00C8C851 /* MyCustomChooser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyCustomChooser.storyboard; sourceTree = "<group>"; };
@@ -97,29 +77,17 @@
 		B650AE401BDFFF3F00C8C851 /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		B650AE411BDFFF3F00C8C851 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		B650AE421BDFFF3F00C8C851 /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		B650AE481BE004B100C8C851 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
-		B650AE491BE004B100C8C851 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		B650AE4E1BE0072500C8C851 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		B652BA901C58180800F8AF74 /* iOSHelper 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iOSHelper 2.xcdatamodel"; sourceTree = "<group>"; };
+		B699B1C51C5AD2BF00782513 /* iOSHelper 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iOSHelper 3.xcdatamodel"; sourceTree = "<group>"; };
+		B6CC80201C9C9C8E003C2350 /* MyAlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlertManager.swift; sourceTree = "<group>"; };
+		B6CC80221C9C9D24003C2350 /* MyAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAlertController.swift; sourceTree = "<group>"; };
+		B6CC80241C9C9D32003C2350 /* MyAlertController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyAlertController.storyboard; sourceTree = "<group>"; };
 		B6E549A41BE7C62A006A413D /* SomeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B650ADCF1BDFE2B500C8C851 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B650ADE61BDFE2B500C8C851 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B650ADF11BDFE2B500C8C851 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,8 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				B650ADD21BDFE2B500C8C851 /* iOSHelper.app */,
-				B650ADE91BDFE2B500C8C851 /* iOSHelperTests.xctest */,
-				B650ADF41BDFE2B500C8C851 /* iOSHelperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,15 +169,6 @@
 			name = "My Custom Chooser";
 			sourceTree = "<group>";
 		};
-		B650AE0A1BDFF53900C8C851 /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-				B650AE481BE004B100C8C851 /* Loading.storyboard */,
-				B650AE491BE004B100C8C851 /* LoadingViewController.swift */,
-			);
-			name = Loading;
-			sourceTree = "<group>";
-		};
 		B650AE0B1BDFF56F00C8C851 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,9 +176,9 @@
 				B650AE3B1BDFFE1700C8C851 /* Util.swift */,
 				B650AE061BDFE2C700C8C851 /* Core Data */,
 				B650AE4C1BE0068F00C8C851 /* Extensions */,
-				B650AE0A1BDFF53900C8C851 /* Loading */,
 				B650AE091BDFF11600C8C851 /* My Custom Chooser */,
 				B650AE0C1BDFF59700C8C851 /* Parent Controllers */,
+				B6CC801F1C9C9C61003C2350 /* Alert */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -255,6 +212,16 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		B6CC801F1C9C9C61003C2350 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				B6CC80201C9C9C8E003C2350 /* MyAlertManager.swift */,
+				B6CC80241C9C9D32003C2350 /* MyAlertController.storyboard */,
+				B6CC80221C9C9D24003C2350 /* MyAlertController.swift */,
+			);
+			name = Alert;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,42 +242,6 @@
 			productReference = B650ADD21BDFE2B500C8C851 /* iOSHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B650ADE81BDFE2B500C8C851 /* iOSHelperTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B650AE001BDFE2B500C8C851 /* Build configuration list for PBXNativeTarget "iOSHelperTests" */;
-			buildPhases = (
-				B650ADE51BDFE2B500C8C851 /* Sources */,
-				B650ADE61BDFE2B500C8C851 /* Frameworks */,
-				B650ADE71BDFE2B500C8C851 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B650ADEB1BDFE2B500C8C851 /* PBXTargetDependency */,
-			);
-			name = iOSHelperTests;
-			productName = iOSHelperTests;
-			productReference = B650ADE91BDFE2B500C8C851 /* iOSHelperTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		B650ADF31BDFE2B500C8C851 /* iOSHelperUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B650AE031BDFE2B500C8C851 /* Build configuration list for PBXNativeTarget "iOSHelperUITests" */;
-			buildPhases = (
-				B650ADF01BDFE2B500C8C851 /* Sources */,
-				B650ADF11BDFE2B500C8C851 /* Frameworks */,
-				B650ADF21BDFE2B500C8C851 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B650ADF61BDFE2B500C8C851 /* PBXTargetDependency */,
-			);
-			name = iOSHelperUITests;
-			productName = iOSHelperUITests;
-			productReference = B650ADF41BDFE2B500C8C851 /* iOSHelperUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -323,14 +254,6 @@
 				TargetAttributes = {
 					B650ADD11BDFE2B500C8C851 = {
 						CreatedOnToolsVersion = 7.1;
-					};
-					B650ADE81BDFE2B500C8C851 = {
-						CreatedOnToolsVersion = 7.1;
-						TestTargetID = B650ADD11BDFE2B500C8C851;
-					};
-					B650ADF31BDFE2B500C8C851 = {
-						CreatedOnToolsVersion = 7.1;
-						TestTargetID = B650ADD11BDFE2B500C8C851;
 					};
 				};
 			};
@@ -348,8 +271,6 @@
 			projectRoot = "";
 			targets = (
 				B650ADD11BDFE2B500C8C851 /* iOSHelper */,
-				B650ADE81BDFE2B500C8C851 /* iOSHelperTests */,
-				B650ADF31BDFE2B500C8C851 /* iOSHelperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -362,22 +283,8 @@
 				B650ADE31BDFE2B500C8C851 /* LaunchScreen.storyboard in Resources */,
 				B650AE1A1BDFF5EA00C8C851 /* MyCustomChooser.storyboard in Resources */,
 				B650ADE01BDFE2B500C8C851 /* Assets.xcassets in Resources */,
-				B650AE4A1BE004B100C8C851 /* Loading.storyboard in Resources */,
+				B6CC80251C9C9D32003C2350 /* MyAlertController.storyboard in Resources */,
 				B650ADDB1BDFE2B500C8C851 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B650ADE71BDFE2B500C8C851 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B650ADF21BDFE2B500C8C851 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,8 +302,8 @@
 				B650AE391BDFFD2500C8C851 /* MainTableViewController.swift in Sources */,
 				B650AE351BDFF6A100C8C851 /* MyManagedObject.swift in Sources */,
 				B650AE2E1BDFF66000C8C851 /* String+Util.swift in Sources */,
-				B650AE4B1BE004B100C8C851 /* LoadingViewController.swift in Sources */,
 				B650AE1B1BDFF5EA00C8C851 /* MyCustomChooserViewController.swift in Sources */,
+				B6CC80211C9C9C8E003C2350 /* MyAlertManager.swift in Sources */,
 				B650AE311BDFF66000C8C851 /* UIView+Util.swift in Sources */,
 				B650AE301BDFF66000C8C851 /* UIViewController+Util.swift in Sources */,
 				B650AE2C1BDFF66000C8C851 /* Array+Util.swift in Sources */,
@@ -408,6 +315,7 @@
 				B650AE2B1BDFF66000C8C851 /* UIDevice+Util.swift in Sources */,
 				B650AE1C1BDFF5EA00C8C851 /* MyCustomChooserTableViewController.swift in Sources */,
 				B650AE451BDFFF3F00C8C851 /* MyTableViewController.swift in Sources */,
+				B6CC80231C9C9D24003C2350 /* MyAlertController.swift in Sources */,
 				B650AE3C1BDFFE1700C8C851 /* Notification.swift in Sources */,
 				B650ADD61BDFE2B500C8C851 /* AppDelegate.swift in Sources */,
 				B650AE3D1BDFFE1700C8C851 /* Util.swift in Sources */,
@@ -418,36 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B650ADE51BDFE2B500C8C851 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B650ADEE1BDFE2B500C8C851 /* iOSHelperTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B650ADF01BDFE2B500C8C851 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B650ADF91BDFE2B500C8C851 /* iOSHelperUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B650ADEB1BDFE2B500C8C851 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B650ADD11BDFE2B500C8C851 /* iOSHelper */;
-			targetProxy = B650ADEA1BDFE2B500C8C851 /* PBXContainerItemProxy */;
-		};
-		B650ADF61BDFE2B500C8C851 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B650ADD11BDFE2B500C8C851 /* iOSHelper */;
-			targetProxy = B650ADF51BDFE2B500C8C851 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B650ADD91BDFE2B500C8C851 /* Main.storyboard */ = {
@@ -574,54 +453,6 @@
 			};
 			name = Release;
 		};
-		B650AE011BDFE2B500C8C851 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = iOSHelperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kozinga.iOSHelperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSHelper.app/iOSHelper";
-			};
-			name = Debug;
-		};
-		B650AE021BDFE2B500C8C851 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = iOSHelperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kozinga.iOSHelperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSHelper.app/iOSHelper";
-			};
-			name = Release;
-		};
-		B650AE041BDFE2B500C8C851 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = iOSHelperUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kozinga.iOSHelperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = iOSHelper;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		B650AE051BDFE2B500C8C851 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = iOSHelperUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kozinga.iOSHelperUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = iOSHelper;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -643,34 +474,17 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B650AE001BDFE2B500C8C851 /* Build configuration list for PBXNativeTarget "iOSHelperTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B650AE011BDFE2B500C8C851 /* Debug */,
-				B650AE021BDFE2B500C8C851 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B650AE031BDFE2B500C8C851 /* Build configuration list for PBXNativeTarget "iOSHelperUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B650AE041BDFE2B500C8C851 /* Debug */,
-				B650AE051BDFE2B500C8C851 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
 		B650ADDC1BDFE2B500C8C851 /* iOSHelper.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B699B1C51C5AD2BF00782513 /* iOSHelper 3.xcdatamodel */,
 				B652BA901C58180800F8AF74 /* iOSHelper 2.xcdatamodel */,
 				B650ADDD1BDFE2B500C8C851 /* iOSHelper.xcdatamodel */,
 			);
-			currentVersion = B652BA901C58180800F8AF74 /* iOSHelper 2.xcdatamodel */;
+			currentVersion = B699B1C51C5AD2BF00782513 /* iOSHelper 3.xcdatamodel */;
 			path = iOSHelper.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

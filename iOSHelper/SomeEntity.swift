@@ -9,11 +9,15 @@
 import Foundation
 import CoreData
 
+enum EntityEnum: Int {
+  case One=1, Two, Three
+}
 
 class SomeEntity: MyManagedObject {
   
   @NSManaged private var someIntegerValue: NSNumber
   @NSManaged private var someBooleanValue: NSNumber
+  @NSManaged private var someEnumValue: NSNumber
   @NSManaged var name: String
   @NSManaged var date: NSDate
   @NSManaged var userSettings: UserSettings
@@ -23,7 +27,7 @@ class SomeEntity: MyManagedObject {
       return Int(self.someIntegerValue)
     }
     set {
-      self.someIntegerValue = NSNumber(integer: newValue)
+      self.someIntegerValue = newValue
     }
   }
   
@@ -32,7 +36,16 @@ class SomeEntity: MyManagedObject {
       return Bool(self.someBooleanValue)
     }
     set {
-      self.someBooleanValue = NSNumber(bool: newValue)
+      self.someBooleanValue = newValue
+    }
+  }
+  
+  var someEnum: EntityEnum {
+    get {
+      return EntityEnum(rawValue: Int(self.someEnumValue))!
+    }
+    set {
+      self.someEnumValue = newValue.rawValue
     }
   }
   
@@ -69,7 +82,7 @@ class SomeEntity: MyManagedObject {
     return nil
   }
   
-  class func createOrUpdate(name: String, date: NSDate, someInteger: Int, someBoolean: Bool, userSettings: UserSettings = UserSettings.fetch()) -> SomeEntity {
+  class func createOrUpdate(name: String, date: NSDate, someInteger: Int, someBoolean: Bool, someEnum: EntityEnum, userSettings: UserSettings = UserSettings.fetch()) -> SomeEntity {
     var object: SomeEntity
     if let fetchedObject = self.fetch(name) {
       object = fetchedObject
@@ -80,6 +93,7 @@ class SomeEntity: MyManagedObject {
     object.date = date
     object.someInteger = someInteger
     object.someBoolean = someBoolean
+    object.someEnum = someEnum
     object.userSettings = userSettings
     CoreDataStack.saveAllContexts()
     return object

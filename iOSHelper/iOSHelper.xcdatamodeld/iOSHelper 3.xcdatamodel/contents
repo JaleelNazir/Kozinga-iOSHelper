@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="SomeEntity" representedClassName="iOSHelper.SomeEntity" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="someBooleanValue" attributeType="Boolean" syncable="YES"/>
+        <attribute name="someEnumValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="someIntegerValue" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="userSettings" maxCount="1" deletionRule="Nullify" destinationEntity="UserSettings" inverseName="myEntitiesSet" inverseEntity="UserSettings" syncable="YES"/>
+    </entity>
+    <entity name="UserSettings" representedClassName="iOSHelper.UserSettings" syncable="YES">
+        <attribute name="settingsEnumValue" optional="YES" attributeType="Integer 32" defaultValueString="1" syncable="YES"/>
+        <attribute name="someBooleanValue" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="someDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="someFloatValue" optional="YES" attributeType="Float" defaultValueString="1.2" syncable="YES"/>
+        <attribute name="someIntegerValue" optional="YES" attributeType="Integer 32" defaultValueString="2" syncable="YES"/>
+        <attribute name="someString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="myEntitiesSet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SomeEntity" inverseName="userSettings" inverseEntity="SomeEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SomeEntity" positionX="-63" positionY="27" width="128" height="135"/>
+        <element name="UserSettings" positionX="-63" positionY="-18" width="128" height="150"/>
+    </elements>
+</model>
