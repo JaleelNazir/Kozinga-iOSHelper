@@ -85,5 +85,23 @@ class MainTableViewController: MyTableViewController {
     }
     
     MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserTitle: "Pick an Option", chooserItems: items, isPicker: true, cancelItem: cancelItem)
+    
+    // Loading:
+    
+    MyLoadingManager.showLoading()
+    MyLoadingManager.hideLoading()
+    
+    // Alerts
+    
+    MyAlertManager.showAlert("With title", message: "And message") { () -> Void in
+      // button selected callback
+    }
+    
+    MyAlertManager.show2ButtonAlert("With title", message: "And message", button1SelectedHandler: { () -> Void in
+      // Button 1 selected callback
+      }) { () -> Void in
+        // Button 2 selected callback
+    }
+    
   }
 }

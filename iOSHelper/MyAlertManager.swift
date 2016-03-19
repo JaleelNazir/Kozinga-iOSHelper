@@ -66,11 +66,12 @@ class MyAlertManager: MyViewControllerDismissDelegate {
   // MARK: Loading
   
   class func showLoading(title: String? = nil) {
-    if !self.sharedInstance.alertVisible {
-      self.sharedInstance.currentAlertController = MyAlertController.presentLoading(self.sharedInstance, alertTitle: title)
-    } else {
-      NSLog("Already presenting alert")
+    if let viewController = self.sharedInstance.currentAlertController where viewController.type == MyAlertController.MyAlertType.Loading {
+      // Do nothing, loading is already showing
+      NSLog("Already presenting loading")
+      return
     }
+    self.sharedInstance.currentAlertController = MyAlertController.presentLoading(self.sharedInstance, alertTitle: title)
   }
   
   class func hideLoading() {

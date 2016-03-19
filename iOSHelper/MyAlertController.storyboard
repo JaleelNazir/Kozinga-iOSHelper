@@ -8,7 +8,7 @@
         <!--My Alert Controller-->
         <scene sceneID="2lD-Ag-6nW">
             <objects>
-                <viewController storyboardIdentifier="MyAlertControllerOneButton" id="dLs-qF-Ox6" customClass="MyAlertController" customModule="SwingLync" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyAlertControllerOneButton" id="dLs-qF-Ox6" customClass="MyAlertController" customModule="iOSHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tq1-GJ-xpb"/>
                         <viewControllerLayoutGuide type="bottom" id="8Dm-sK-LG1"/>
@@ -105,7 +105,7 @@
         <!--My Alert Controller-->
         <scene sceneID="esG-qI-DE9">
             <objects>
-                <viewController storyboardIdentifier="MyAlertControllerTwoButton" id="Llv-Xm-8hv" customClass="MyAlertController" customModule="SwingLync" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyAlertControllerTwoButton" id="Llv-Xm-8hv" customClass="MyAlertController" customModule="iOSHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="otZ-eM-rWl"/>
                         <viewControllerLayoutGuide type="bottom" id="dkA-ht-2M3"/>
@@ -227,7 +227,7 @@
         <!--My Alert Controller-->
         <scene sceneID="Z8t-aN-eUp">
             <objects>
-                <viewController storyboardIdentifier="MyAlertControllerLoading" id="BcA-qJ-9HX" customClass="MyAlertController" customModule="SwingLync" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyAlertControllerLoading" id="BcA-qJ-9HX" customClass="MyAlertController" customModule="iOSHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="upO-BT-GLH"/>
                         <viewControllerLayoutGuide type="bottom" id="tlU-sa-Qfy"/>

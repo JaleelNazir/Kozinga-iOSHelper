@@ -115,6 +115,8 @@ class MyAlertController: MyViewController {
     // Styling
     
     self.view.backgroundColor = UIColor.clearColor()
+    self.contentView?.layer.cornerRadius = 10.0
+    self.contentView?.clipsToBounds = true
     
     // Content
     
@@ -154,9 +156,12 @@ class MyAlertController: MyViewController {
     self.dismiss()
   }
   
-  func dismiss() {
+  func dismiss(completionHandler: (() -> Void)? = nil) {
     self.dismissViewControllerAnimated(true) { () -> Void in
       self.delegate?.myControllerDidDismiss()
+      if let handler = completionHandler {
+        handler()
+      }
     }
   }
   
@@ -164,17 +169,19 @@ class MyAlertController: MyViewController {
   
   @IBAction func button1Selected(sender: UIButton) {
     sender.enabled = false
-    if let handler = self.button1SelectedHandler {
-      handler()
+    self.dismiss { () -> Void in
+      if let handler = self.button1SelectedHandler {
+        handler()
+      }
     }
-    self.dismiss()
   }
   
   @IBAction func button2Selected(sender: UIButton) {
     sender.enabled = false
-    if let handler = self.button2SelectedHandler {
-      handler()
+    self.dismiss { () -> Void in
+      if let handler = self.button2SelectedHandler {
+        handler()
+      }
     }
-    self.dismiss()
   }
 }
