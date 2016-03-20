@@ -92,6 +92,7 @@
                     <connections>
                         <outlet property="blurView" destination="WtS-hU-2UO" id="DC1-mF-GWH"/>
                         <outlet property="button1" destination="KNu-vh-IPB" id="M6d-9R-4rs"/>
+                        <outlet property="contentCenterYConstraint" destination="8HD-Vb-byJ" id="fIa-2b-ekb"/>
                         <outlet property="contentHeightConstraint" destination="7Rv-34-MZN" id="Rfb-2T-LCT"/>
                         <outlet property="contentView" destination="Qh0-ac-EgX" id="5Q4-YC-cfH"/>
                         <outlet property="messageLabel" destination="qpx-Kx-7vn" id="sdA-ge-Wk6"/>
@@ -214,6 +215,7 @@
                         <outlet property="blurView" destination="ba0-lP-I79" id="jx8-VA-K8J"/>
                         <outlet property="button1" destination="y9y-qO-72o" id="Tiu-hA-IQV"/>
                         <outlet property="button2" destination="eKQ-j9-cdO" id="X9c-C9-ivO"/>
+                        <outlet property="contentCenterYConstraint" destination="1Kw-Gu-FEY" id="2vm-aw-zG6"/>
                         <outlet property="contentHeightConstraint" destination="y1Y-0J-a0k" id="zQX-g7-2Cr"/>
                         <outlet property="contentView" destination="a6u-lB-SLO" id="unw-F6-3Aq"/>
                         <outlet property="messageLabel" destination="obF-7t-39M" id="umt-XF-s7Q"/>

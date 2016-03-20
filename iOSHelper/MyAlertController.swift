@@ -322,7 +322,7 @@ class MyAlertController: MyViewController {
   }
   
   func keyboardWillHide(notification: NSNotification) {
-    if let constraint = self.contentCenterYConstraint, userInfo = notification.userInfo, durationInfo = userInfo[UIKeyboardAnimationDurationUserInfoKey], curveInfo = userInfo[UIKeyboardAnimationCurveUserInfoKey], keyboardFrameInfo = userInfo[UIKeyboardFrameEndUserInfoKey], keyboardFrame = keyboardFrameInfo.CGRectValue {
+    if let constraint = self.contentCenterYConstraint, userInfo = notification.userInfo, durationInfo = userInfo[UIKeyboardAnimationDurationUserInfoKey], curveInfo = userInfo[UIKeyboardAnimationCurveUserInfoKey], keyboardFrameInfo = userInfo[UIKeyboardFrameEndUserInfoKey] {
       let duration = durationInfo.doubleValue
       let curve = UIViewKeyframeAnimationOptions(rawValue: curveInfo.unsignedIntegerValue)
       constraint.constant = 0
