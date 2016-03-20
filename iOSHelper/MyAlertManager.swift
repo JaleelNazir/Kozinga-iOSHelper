@@ -63,6 +63,24 @@ class MyAlertManager: MyViewControllerDismissDelegate {
     }
   }
   
+  // MARK: Text field alerts
+  
+  class func showTextField(title: String, message: String? = nil, buttonTitle: String = "Close", textFieldText: String = "", textFieldPlaceholder: String = "", textFieldEditingChangedHandler: ((String) -> Void)? = nil, buttonSelectedHandler: ((String) -> Void)? = nil) {
+    if !self.sharedInstance.alertVisible {
+      self.sharedInstance.currentAlertController = MyAlertController.presentTextField(title, alertMessage: message, delegate: self.sharedInstance, buttonTitle: buttonTitle, textFieldText: textFieldText, textFieldPlaceholder: textFieldPlaceholder, textFieldEditingChangedHandler: textFieldEditingChangedHandler, buttonSelectedHandler: buttonSelectedHandler)
+    } else {
+      NSLog("Already presenting alert")
+    }
+  }
+  
+  class func showTextField2Button(title: String, message: String? = nil, button1Title: String = "Ok", button2Title: String = "Cancel", textFieldText: String = "", textFieldPlaceholder: String = "", textFieldEditingChangedHandler: ((String) -> Void)? = nil, button1SelectedHandler: ((String) -> Void)? = nil, button2SelectedHandler: ((String) -> Void)? = nil) {
+    if !self.sharedInstance.alertVisible {
+      self.sharedInstance.currentAlertController = MyAlertController.presentTextFieldTwoButtons(title, alertMessage: message, delegate: self.sharedInstance, button1Title: button1Title, button2Title: button2Title, textFieldText: textFieldText, textFieldPlaceholder: textFieldPlaceholder, textFieldEditingChangedHandler: textFieldEditingChangedHandler, button1SelectedHandler: button1SelectedHandler, button2SelectedHandler: button2SelectedHandler)
+    } else {
+      NSLog("Already presenting alert")
+    }
+  }
+  
   // MARK: Loading
   
   class func showLoading(title: String? = nil) {

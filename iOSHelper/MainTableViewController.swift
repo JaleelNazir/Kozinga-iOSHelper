@@ -38,6 +38,22 @@ class MainTableViewController: MyTableViewController {
       
     } else if indexPath.section == 1 && indexPath.row == 3 {
       MyAlertManager.show2ButtonAlert("Sample 2 Button Alert", message: "With a message")
+      
+    } else if indexPath.section == 1 && indexPath.row == 4 {
+      MyAlertManager.showTextField("Sample Alert", message: "With a message", textFieldPlaceholder: "Custom Placeholder", textFieldEditingChangedHandler: { (text) -> Void in
+        print("Alert text field keyup: \(text)")
+        }, buttonSelectedHandler: { (text) -> Void in
+          print("Alert text field did dismiss: \(text)")
+      })
+      
+    } else if indexPath.section == 1 && indexPath.row == 5 {
+      MyAlertManager.showTextField2Button("Sample Alert", message: "With a message", textFieldPlaceholder: "Custom Placeholder", textFieldEditingChangedHandler: { (text) -> Void in
+        print("Alert text field keyup: \(text)")
+        }, button1SelectedHandler: { (text) -> Void in
+          print("Alert text field button1 selected: \(text)")
+        }, button2SelectedHandler: { (text) -> Void in
+          print("Alert text field button2 selected: \(text)")
+      })
     }
   }
 
@@ -85,23 +101,5 @@ class MainTableViewController: MyTableViewController {
     }
     
     MyCustomChooserViewController.presentMyCustomChooserViewController(self, chooserTitle: "Pick an Option", chooserItems: items, isPicker: true, cancelItem: cancelItem)
-    
-    // Loading:
-    
-    MyLoadingManager.showLoading()
-    MyLoadingManager.hideLoading()
-    
-    // Alerts
-    
-    MyAlertManager.showAlert("With title", message: "And message") { () -> Void in
-      // button selected callback
-    }
-    
-    MyAlertManager.show2ButtonAlert("With title", message: "And message", button1SelectedHandler: { () -> Void in
-      // Button 1 selected callback
-      }) { () -> Void in
-        // Button 2 selected callback
-    }
-    
   }
 }
