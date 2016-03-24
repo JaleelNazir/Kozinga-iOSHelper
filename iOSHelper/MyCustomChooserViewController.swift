@@ -114,7 +114,7 @@ class MyCustomChooserViewController: MyViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    Notification.addObserver(self, selector: "backgroundTapped", name: MyCustomChooserViewController.NotificationClose)
+    Notification.addObserver(self, selector: #selector(self.backgroundTapped), name: MyCustomChooserViewController.NotificationClose)
     
     self.hideContent(false)
   }
@@ -159,7 +159,7 @@ class MyCustomChooserViewController: MyViewController {
         self.backgroundView.alpha = 0.3
         self.contentBackgroundView.alpha = 0.3
         }, completion: { (value: Bool) in
-          let viewTapGesture = UITapGestureRecognizer(target: self, action: "backgroundTapped")
+          let viewTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.backgroundTapped))
           self.backgroundView.addGestureRecognizer(viewTapGesture)
       })
     } else {

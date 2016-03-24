@@ -210,14 +210,10 @@ class MyAlertController: MyViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidDisappear(animated)
     
-    Notification.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification)
-    Notification.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification)
+    Notification.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification)
+    Notification.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification)
     
     self.textField?.becomeFirstResponder()
-  }
-  
-  override func prefersStatusBarHidden() -> Bool {
-    return true
   }
   
   // MARK: Actions
@@ -322,7 +318,7 @@ class MyAlertController: MyViewController {
   }
   
   func keyboardWillHide(notification: NSNotification) {
-    if let constraint = self.contentCenterYConstraint, userInfo = notification.userInfo, durationInfo = userInfo[UIKeyboardAnimationDurationUserInfoKey], curveInfo = userInfo[UIKeyboardAnimationCurveUserInfoKey], keyboardFrameInfo = userInfo[UIKeyboardFrameEndUserInfoKey] {
+    if let constraint = self.contentCenterYConstraint, userInfo = notification.userInfo, durationInfo = userInfo[UIKeyboardAnimationDurationUserInfoKey], curveInfo = userInfo[UIKeyboardAnimationCurveUserInfoKey] {
       let duration = durationInfo.doubleValue
       let curve = UIViewKeyframeAnimationOptions(rawValue: curveInfo.unsignedIntegerValue)
       constraint.constant = 0

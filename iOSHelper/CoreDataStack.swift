@@ -60,14 +60,14 @@ class CoreDataStack: NSObject {
   
   func configure() {
     let notificationCenter = NSNotificationCenter.defaultCenter()
-    notificationCenter.addObserver(self, selector: "save", name: CoreDataStack.NOTIFICATION_CONTEXT_ALL_SAVE, object: nil)
-    notificationCenter.addObserver(self, selector: "rollback", name: CoreDataStack.NOTIFICATION_CONTEXT_ALL_ROLLBACK, object: nil)
-    notificationCenter.addObserver(self, selector: "saveMainContext", name: CoreDataStack.NOTIFICATION_CONTEXT_MAIN_SAVE, object: nil)
-    notificationCenter.addObserver(self, selector: "rollbackMainContext", name: CoreDataStack.NOTIFICATION_CONTEXT_MAIN_ROLLBACK, object: nil)
-    notificationCenter.addObserver(self, selector: "saveBackgroundContext", name: CoreDataStack.NOTIFICATION_CONTEXT_BACKGROUND_SAVE, object: nil)
-    notificationCenter.addObserver(self, selector: "rollbackBackgroundContext", name: CoreDataStack.NOTIFICATION_CONTEXT_BACKGROUND_ROLLBACK, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(self.save), name: CoreDataStack.NOTIFICATION_CONTEXT_ALL_SAVE, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(self.rollback), name: CoreDataStack.NOTIFICATION_CONTEXT_ALL_ROLLBACK, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(self.saveMainContext), name: CoreDataStack.NOTIFICATION_CONTEXT_MAIN_SAVE, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(self.rollbackMainContext), name: CoreDataStack.NOTIFICATION_CONTEXT_MAIN_ROLLBACK, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(self.saveBackgroundContext), name: CoreDataStack.NOTIFICATION_CONTEXT_BACKGROUND_SAVE, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(self.rollbackBackgroundContext), name: CoreDataStack.NOTIFICATION_CONTEXT_BACKGROUND_ROLLBACK, object: nil)
     
-    notificationCenter.addObserver(self, selector: "managedObjectSaved:", name: NSManagedObjectContextDidSaveNotification, object: nil)
+      notificationCenter.addObserver(self, selector: #selector(self.managedObjectSaved(_:)), name: NSManagedObjectContextDidSaveNotification, object: nil)
   }
   
   deinit {

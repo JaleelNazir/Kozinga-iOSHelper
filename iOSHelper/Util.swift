@@ -53,7 +53,7 @@ class Util {
     let p = UnsafePointer<UInt8>(data.bytes)
     let len = data.length
     
-    for var i=0; i<len; ++i {
+    for i in 0...len - 1 {
       str += String(format: "%02.2X", p[i])
     }
     return str
