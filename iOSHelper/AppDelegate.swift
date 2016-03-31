@@ -63,11 +63,15 @@ extension AppDelegate {
   }
   
   class var rootViewController: UIViewController? {
-    let instance = self.sharedInstance
-    if let window = instance.window {
-      return window.rootViewController
+    get {
+      let instance = self.sharedInstance
+      if let window = instance.window {
+        return window.rootViewController
+      }
+      return nil
     }
-    return nil
+    set {
+      self.sharedInstance.window?.rootViewController = newValue
+    }
   }
-  
 }
